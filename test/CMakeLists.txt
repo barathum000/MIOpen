@@ -248,9 +248,7 @@ if(MIOPEN_TEST_GFX900 OR MIOPEN_TEST_GFX906 OR MIOPEN_TEST_GFX908)
 endif()
 
 #TODO unable to reproduce on gfx90a, should update ROCm 
-if(MIOPEN_TEST_GFX900 OR MIOPEN_TEST_GFX906 OR MIOPEN_TEST_GFX90A)
-    list(APPEND SKIP_TESTS test_handle_test)
-endif()
+list(APPEND SKIP_TESTS test_handle_test)
 
 # The usage is non-trivial, see function add_test_command.
 if(SKIP_TESTS)
