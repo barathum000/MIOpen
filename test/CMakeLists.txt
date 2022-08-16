@@ -656,6 +656,9 @@ if(${MIOPEN_TEST_WITH_MIOPENDRIVER})
         # Regression test for https://github.com/ROCmSoftwarePlatform/MIOpen/issues/1661
         COMMAND MIOPEN_DRIVER_USE_GPU_REFERENCE=1 $<TARGET_FILE:MIOpenDriver> ${MIOPENDRIVER_MODE_CONV} -W 5078 -H 4903 -c 24 -n 5 -k 1 --fil_w 3 --fil_h 3 --pad_w 6 --pad_h 4 -F 1
     )
+    # Issue #1697: this large test can only be executed in serial mode
+    set_tests_properties(test_miopendriver_big_tensor
+        PROPERTIES RUN_SERIAL On)
 endif()
 
 set(IMPLICITGEMM_ARGS ${MIOPEN_TEST_FLOAT_ARG})
