@@ -1019,9 +1019,6 @@ pipeline {
                     options {
                         retry(2)
                     }
-                    options {
-                        retry(2)
-                    }
                     agent{ label rocmnode("navi21") }
                     steps{
                         buildHipClangJobAndReboot(setup_flags: Full_test, build_cmd: Navi21_build_cmd, build_install: "true", gpu_arch: "gfx1030")
